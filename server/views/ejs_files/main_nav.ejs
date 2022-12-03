@@ -13,13 +13,13 @@
       <!--login and logout navs-->
   <% if(typeof displayName =='string' && displayName) { %>
         <li class="nav-item">
-        <i class="fas fa-lg fa-user"></i>
+        <i class="fa-solid fa-user-ninja"></i>
         Bonjour <%= displayName %> Let's Get Fit! </li>
         <li class="nav-item">
-        <a href="/logout"> Member Logout <i class="fas fa-lg fa-sign-out-alt"></i></a></li>
+        <a href="/logout"> Member Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
       <% } else { %>
         <li class="nav-item">
-          <a href="/login"> Member Login <i class="fas fa-lg fa-sign-in-alt"></i></a></li>
+          <a href="/login"> Member Login <i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
       <% } %>
       <!--gym task page-->
         <li class='nav-item'>

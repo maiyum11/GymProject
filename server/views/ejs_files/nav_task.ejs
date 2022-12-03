@@ -3,6 +3,16 @@
   <div class="container-fluid">
   <!--the icon below when clicked takes to the homepage-->
     <a class="navbar-brand" href="/home"><img src= "\media\home-removebg-preview.png" class="mylogo"></a>
+    <% if(typeof displayName =='string' && displayName) { %>
+         <class="nav-item">
+        <i class="fa-solid fa-person-skating"></i>
+        Hello <%= displayName %>👋
+        <class="nav-item">
+        <a href="/logout"> Member Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+      <% } else { %>
+        <class="nav-item">
+          <a href="/login"> Member Login <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+      <% } %>  
     <!--responsive navbar-->
     <button class="navbar-toggler-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,18 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav navbar-right">  
     <!--login and logout navs-->
-  <% if(typeof displayName =='string' && displayName) { %>
-         <li class="nav-item">
-        <i class="fas fa-lg fa-user"></i>
-        Hello <%= displayName %> !!! </li>
-        <li class="nav-item">
-        <a href="/logout"> Member Logout <i class="fas fa-lg fa-sign-out-alt"></i></a>
-        </li>
-      <% } else { %>
-        <li class="nav-item">
-          <a href="/login"> Member Login <i class="fas fa-lg fa-sign-in-alt"></i></a>
-        </li>
-      <% } %>      
+      
       <!--homepage-->
         <li class='nav-item'>
         <a href="/home" role="button"> Home <i class="fa-solid fa-home"></i></a>
