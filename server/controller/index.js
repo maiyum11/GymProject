@@ -1,9 +1,14 @@
 let express = require('express');
 const passport = require('passport');
 let router = express.Router();
+let userModel = require('../models/user');
+let User = userModel.User;
 
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', { title: 'Get Fit'});
+    res.render('index', { 
+    title: 'Get Fit',
+    displayName:req.user ? req.user.displayName:''
+    });
 }
 module.exports.displayLoginPage = (req, res, next) => {
     if (!req.user)
@@ -38,7 +43,7 @@ module.exports.processLoginPage = (req, res, next) => {
             {
                 return next(err)
             }
-            return res.redirect('/gymlist');
+            return res.redirect('/tasks');
         })
         
     }) (req,res,next)
@@ -85,7 +90,7 @@ module.exports.processRegisterPage = (req,res,next) => {
         else
         {
             return passport.authenticate('local')(req,res,()=>{
-                res.redirect('/gymlist');
+                res.redirect('tasks');
             })    
         }
     })

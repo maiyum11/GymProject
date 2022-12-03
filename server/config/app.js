@@ -33,6 +33,9 @@ app.use(session({
   saveUnintialized:false,
   resave:false
 }))
+//implement a user auth
+passport.use(User.createStrategy());
+
 //serialization and deserialization (encrypt. and decrypt.)
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

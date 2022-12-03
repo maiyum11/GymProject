@@ -61,8 +61,8 @@ nav ul li{
   margin: 10px 15px;
 }
 nav ul li a{
-  color: #5b3f0f;
   font-size: 16px;
+  color:#b88960;
   text-decoration: none;
   position: relative;
 }
@@ -71,7 +71,7 @@ nav ul li a::after{
   content:'';
   width: 0;
   height: 2px;
-  background: #dab510;
+  background: #e2e1d9;
   position: absolute;
   left: 0;
   bottom: -5px;

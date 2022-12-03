@@ -1,4 +1,5 @@
-
+<%- include ../ejs_files/header.ejs %>
+<%- include ../ejs_files/nav_task.ejs %>
 <main class="container">
     <% if (message.lenth > 0) { %>
 <div class="alert alter-danger">
@@ -41,7 +42,7 @@
             <fieldset class="form-group text-right">
                 <input type="submit" class="btn btn-success"
                 value="Register">
-                <a href="/"></a>
+                <a href="/">
                     <input type="button" class="btn btn-warning" value="Cancel">
                 </a>
             </fieldset>
@@ -49,3 +50,5 @@
     </div>
 </div>
 </main>
+<%- include ../ejs_files/bottom_nav.ejs %>
+<%- include ../ejs_files/footer.ejs %>

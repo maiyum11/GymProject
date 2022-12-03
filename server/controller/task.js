@@ -16,7 +16,8 @@ module.exports.displaygym = (req,res,next)=>{
         {
             res.render('task/gymlist',{
                 title:'Fitness Club Schedule', 
-                gym: taskmanager
+                gym: taskmanager,
+                displayName: req.user ? req.user.displayName:''
             })
         }
     });
@@ -25,6 +26,7 @@ module.exports.displaygym = (req,res,next)=>{
 module.exports.displayAddPage = (req,res,next)=>{
     res.render('task/add',{
         title:'Add a Task',
+        displayName: req.user ? req.user.displayName:''
     })
 }
 module.exports.processAddPage = (req,res,next)=>{
@@ -57,7 +59,10 @@ module.exports.displayEditPage = (req,res,next)=>{
         }
         else
         {
-            res.render('task/edit',{title:'Edit your Task', Task:taskToEdit});
+            res.render('task/edit',{title:'Edit your Task',
+             Task:taskToEdit,
+             displayName: req.user ? req.user.displayName:''
+            });
         }
     });
 }

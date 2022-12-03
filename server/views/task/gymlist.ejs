@@ -6,22 +6,31 @@
     <div class="col-md-offset-3 col-md-15">
     <br>
     <br>
+    <br>
     <h5>Fitness Club Schedule</h5>
     <br>
     <br>
     <!--table contains the data-->
     <table class= "table table-bordered table-striped table-hover" background='\media\table_bg.jpg'>
     <tr class="d-flex">
+     <% if(typeof displayName=='string' && displayName) { %>
       <th class="text-center text-white col-2">Member Name</th>
       <th class="text-center text-white col-2">Member ID</th>
       <th class="text-center text-white col-2">Class Date</th>
       <th class="text-center text-white col-4">Class</th>
       <th class="text-center text-white col-1">Edit</th>
       <th class="text-center text-white col-1">Delete</th>
+      <% } else { %>
+      <th class="text-center text-white col-3">Member Name</th>
+      <th class="text-center text-white col-3">Member ID</th>
+      <th class="text-center text-white col-3">Class Date</th>
+      <th class="text-center text-white col-3">Class</th>
+      <% } %>
     </tr>
     <!--Repeating the template-->
     <% for(let count=0; count < gym.length; count ++) { %>
         <tr class="d-flex">
+        <% if(typeof displayName=='string' && displayName) { %>
           <td class="text-center text-white col-2"><%= gym[count].MemberName %></td>
           <td class="text-center text-white col-2"><%= gym[count].MemberID %></td>
           <td class="text-center text-white col-2"><%= gym[count].ClassDate %></td>
@@ -38,12 +47,21 @@
               class="btn btn-danger">
             <i class="fas fa-trash-alt"></i></a>
           </td>
+          <% } else { %>
+          <td class="text-center text-white col-3"><%= gym[count].MemberName %></td>
+          <td class="text-center text-white col-3"><%= gym[count].MemberID %></td>
+          <td class="text-center text-white col-3"><%= gym[count].ClassDate %></td>
+          <td class="text-center text-white col-3"><%= gym[count].Class %></td>
+          <% } %>
 
         </tr>
     <% } %>
     </table>
-    <a href="/tasks/add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"></i> Add a Class </a>
+    <% if(typeof displayName=='string' && displayName) { %>
+      <a href="/tasks/add" class="btn btn-primary" role="button">
+      <i class="fas fa-plus-circle"></i> Add a Class </a>
+      <br>
+    <% } %>
 </div>
 </div>
 </main>
